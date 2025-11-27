@@ -6,41 +6,72 @@
     <title>Elie Joseph Fayad El Haddad – Finance & Data Science</title>
 
     <style>
+        :root {
+            --navy: #0a1a2f;
+            --navy-light: #0f2647;
+            --accent: #2d6cdf;
+            --gray: #d9d9d9;
+            --white: #ffffff;
+        }
+
         body {
             margin: 0;
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0a1a2f;
-            color: white;
+            background-color: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            width: 100%;
+            background-color: rgba(15, 38, 71, 0.9);
+            padding: 14px 40px;
+            position: fixed;
+            top: 0;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .navbar-title {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: var(--white);
         }
 
         header {
-            background: #0f2647;
-            padding: 40px;
+            background: var(--navy-light);
+            padding: 120px 40px 60px;
             text-align: center;
+            margin-bottom: 20px;
+            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.3);
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 52px;
             margin: 0;
             letter-spacing: 1px;
         }
 
         .subtitle {
-            font-size: 20px;
-            margin-top: 10px;
-            color: #d9d9d9;
+            font-size: 22px;
+            margin-top: 12px;
+            color: var(--gray);
         }
 
         .section {
             max-width: 900px;
             margin: auto;
-            padding: 40px 20px;
+            padding: 40px 25px;
         }
 
         h2 {
-            color: #2d6cdf;
-            border-bottom: 1px solid #2d6cdf;
-            padding-bottom: 8px;
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 28px;
         }
 
         ul {
@@ -50,18 +81,43 @@
         .item-title {
             font-weight: bold;
             font-size: 18px;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .role-date {
+            color: var(--gray);
+            margin-top: -8px;
+            margin-bottom: 10px;
         }
 
         a {
-            color: #2d6cdf;
+            color: var(--accent);
             text-decoration: none;
         }
-        
-        a:hover { text-decoration: underline; }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* CARD STYLE SECTIONS */
+        .card {
+            background-color: rgba(255,255,255,0.03);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="navbar-title">Elie Joseph Fayad El Haddad</div>
+    </div>
 
     <!-- HEADER -->
     <header>
@@ -72,107 +128,123 @@
     <!-- ABOUT -->
     <div class="section">
         <h2>About Me</h2>
-<p>
-    I am a <strong>Data Science student at ITAM</strong> with experience in financial analysis,
-    quantitative reporting, operational risk, and derivatives processes. I currently work as a
-    <strong>Finance Intern at Morgan Stanley</strong>, where I support daily financial controls,
-    risk monitoring, and regulatory reporting for global markets products.
-</p>
+        <div class="card">
+            <p>
+                I am a <strong>Data Science student at ITAM</strong> with experience in financial analysis,
+                quantitative reporting, derivatives processes, and operational risk. I currently work as a
+                <strong>Finance Intern at Morgan Stanley</strong>, supporting global markets finance, 
+                reconciliation controls, XVA/FX risk monitoring, and regulatory reporting.
+            </p>
 
-<p>
-    My responsibilities include the daily reconciliation of executed amounts for 
-    <strong>swaps, forwards, FX spots, bonds, and options</strong>, ensuring accuracy across deal
-    lifecycle processes. I also contribute to <strong>XVA and FX exposure monitoring</strong>, helping
-    identify and mitigate potential market and currency risks through hedging support and exposure analysis.
-</p>
+            <p>
+                My responsibilities include performing daily reconciliations for 
+                <strong>swaps, forwards, FX spots, bonds, and options</strong>, ensuring accuracy across 
+                trade lifecycle operations. I oversee <strong>XVA and FX exposure monitoring</strong>, helping
+                mitigate potential currency and market risks through exposure analysis and hedging alignment.
+            </p>
 
-<p>
-    I am involved in preparing and validating regulatory reports such as the 
-    <strong>FX Position Daily (ACLME)</strong>, performing derivatives validations, and supporting
-    <strong>capital ratio calculations</strong> through data quality checks, documentation, and coordination 
-    with cross-functional teams. My work combines financial rigor, operational precision, and analytical thinking.
-</p>
+            <p>
+                I contribute to the preparation and validation of regulatory reports such as the 
+                <strong>FX Position Daily (ACLME)</strong>, conduct derivatives validations, and support teams
+                working on <strong>capital ratio (ICAP/ICAAP)</strong> calculations and documentation.
+            </p>
 
-<p>
-    I am passionate about integrating <strong>data science techniques into financial workflows</strong>,
-    building tools that enhance decision-making, strengthen controls, and improve operational efficiency.
-</p>
-
+            <p>
+                I enjoy integrating data science techniques into financial workflows and developing tools that
+                enhance decision-making, strengthen controls, and improve operational efficiency.
+            </p>
+        </div>
     </div>
 
     <!-- EXPERIENCE -->
     <div class="section">
         <h2>Professional Experience</h2>
 
-        <!-- MORGAN STANLEY -->
-        <p class="item-title">Finance Intern — Morgan Stanley</p>
-        <p>Jul 2025 – Present · Mexico City · Hybrid</p>
-        <ul>
-            <li>Daily reconciliations of executed amounts for <strong>swaps, forwards, FX spots, bonds, and options</strong>.</li>
-            <li>Monitor <strong>XVA and FX exposure risks</strong> to support hedging strategies.</li>
-            <li>Preparation and submission of regulatory reports such as the <strong>FX Position Daily (ACLME)</strong>.</li>
-            <li>Execution of <strong>derivatives validations</strong> and compliance support.</li>
-            <li>Support in <strong>capital ratio</strong> (ICAP/ICAAP) analysis and documentation.</li>
-            <li>Collaboration with global teams to ensure reporting accuracy and operational control.</li>
-        </ul>
+        <!-- MORGAN -->
+        <div class="card">
+            <p class="item-title">Finance Intern — Morgan Stanley</p>
+            <p class="role-date">Jul 2025 – Present · Mexico City · Hybrid</p>
+            <ul>
+                <li>Daily reconciliations of executed amounts for <strong>swaps, forwards, FX spots, bonds, and options</strong>.</li>
+                <li>Monitor <strong>XVA and FX exposure risks</strong> to support hedging strategies.</li>
+                <li>Prepare and validate regulatory reports such as <strong>FX Position Daily (ACLME)</strong>.</li>
+                <li>Perform <strong>derivatives validations</strong> and support compliance requirements.</li>
+                <li>Assist with <strong>capital ratio</strong> (ICAP/ICAAP) analysis and documentation.</li>
+                <li>Coordinate with global teams to ensure data accuracy and operational controls.</li>
+            </ul>
+        </div>
 
         <!-- DIDI -->
-        <p class="item-title">User Operations Intern — DiDi Shop</p>
-        <p>Jan 2025 – Jul 2025 · Mexico City · Hybrid</p>
-        <ul>
-            <li>Created weekly performance dashboards for global leadership teams.</li>
-            <li>Analyzed revenue growth, ticket size, and user behavior trends.</li>
-            <li>Implemented KPI monitoring and A/B testing for LATAM markets.</li>
-            <li>Coordinated operations with cross-regional teams (Asia, LATAM, South America).</li>
-        </ul>
+        <div class="card">
+            <p class="item-title">User Operations Intern — DiDi Shop</p>
+            <p class="role-date">Jan 2025 – Jul 2025 · Mexico City · Hybrid</p>
+            <ul>
+                <li>Developed weekly performance dashboards for leadership teams.</li>
+                <li>Analyzed revenue growth, ticket size, and user behavior trends.</li>
+                <li>Implemented KPI tracking and A/B testing for LATAM markets.</li>
+                <li>Worked with cross-regional teams across Asia and the Americas.</li>
+            </ul>
+        </div>
 
         <!-- ACTINVER -->
-        <p class="item-title">Participant — Reto Actinver 2024 (Top 7 of 300+)</p>
-        <p>Oct 2024 – Nov 2024 · Mexico City</p>
-        <ul>
-            <li>Managed a conservative portfolio optimizing the <strong>Information Ratio</strong>.</li>
-            <li>Conducted equity and ETF analysis using Yahoo Finance and Python.</li>
-            <li>Ranked Top 7 out of 300+ participants.</li>
-        </ul>
+        <div class="card">
+            <p class="item-title">Participant — Reto Actinver 2024 (Top 7 of 300+)</p>
+            <p class="role-date">Oct 2024 – Nov 2024 · Mexico City</p>
+            <ul>
+                <li>Managed a conservative portfolio optimizing the <strong>Information Ratio</strong>.</li>
+                <li>Performed equity & ETF analysis using Python and financial APIs.</li>
+                <li>Ranked Top 7 out of 300+ participants.</li>
+            </ul>
+        </div>
     </div>
 
     <!-- CERTIFICATIONS -->
     <div class="section">
         <h2>Certifications</h2>
-        <ul>
-            <li><strong>Intermediate Git</strong> — DataCamp (2025)</li>
-            <li><strong>Introduction to Git</strong> — DataCamp (2025)</li>
-            <li><strong>McKinsey Forward Program</strong> — McKinsey & Company (2025)</li>
-            <li><strong>Bloomberg Spreadsheet Analysis</strong> — Bloomberg (2025)</li>
-            <li><strong>Bloomberg Finance Fundamentals</strong> — Bloomberg (2025)</li>
-            <li><strong>SQL</strong> — Codecademy (2025)</li>
-            <li><strong>ggplot2</strong> — Codecademy (2025)</li>
-        </ul>
+        <div class="card">
+            <ul>
+                <li><strong>Intermediate Git</strong> — DataCamp (2025)</li>
+                <li><strong>Introduction to Git</strong> — DataCamp (2025)</li>
+                <li><strong>McKinsey Forward Program</strong> — McKinsey & Company (2025)</li>
+                <li><strong>Bloomberg Spreadsheet Analysis</strong> — Bloomberg (2025)</li>
+                <li><strong>Bloomberg Finance Fundamentals</strong> — Bloomberg (2025)</li>
+                <li><strong>SQL Certification</strong> — Codecademy (2025)</li>
+                <li><strong>ggplot2 Data Visualization</strong> — Codecademy (2025)</li>
+            </ul>
+        </div>
     </div>
 
     <!-- SKILLS -->
     <div class="section">
         <h2>Skills</h2>
-        <ul>
-            <li>Python (Pandas, NumPy, Matplotlib)</li>
-            <li>SQL (PostgreSQL, MySQL)</li>
-            <li>XVA & FX Exposure Monitoring</li>
-            <li>Derivatives Reporting & Controls</li>
-            <li>Financial Reconciliations</li>
-            <li>Advanced Excel & Financial Reporting</li>
-            <li>Version Control (Git & GitHub)</li>
-            <li>Tableau, ggplot2</li>
-            <li>KPI Tracking & A/B Testing</li>
-        </ul>
+        <div class="card">
+            <ul>
+                <li>Python (Pandas, NumPy, Matplotlib)</li>
+                <li>SQL (PostgreSQL, MySQL)</li>
+                <li>XVA & FX Exposure Monitoring</li>
+                <li>Derivatives Reporting & Controls</li>
+                <li>Financial Reconciliations</li>
+                <li>Advanced Excel & Financial Reporting</li>
+                <li>Version Control (Git & GitHub)</li>
+                <li>Tableau, ggplot2</li>
+                <li>KPI Tracking & A/B Testing</li>
+            </ul>
+        </div>
     </div>
 
     <!-- CONTACT -->
     <div class="section">
         <h2>Contact</h2>
-        <p>Phone: +52 55 3950 3339</p>
-        <p>Email: your-email-here</p>
-        <p>GitHub: <a href="https://github.com/Eliefaya" target="_blank">github.com/Eliefaya</a></p>
-        <p>LinkedIn: <a href="#" target="_blank">Add your LinkedIn URL</a></p>
+        <div class="card">
+            <p>Phone: +52 55 3950 3339</p>
+            <p>Email: your-email-here</p>
+            <p>GitHub: <a href="https://github.com/Eliefaya" target="_blank">github.com/Eliefaya</a></p>
+            <p>LinkedIn: 
+                <a href="https://www.linkedin.com/in/elie-fayad-" target="_blank">
+                    linkedin.com/in/elie-fayad-
+                </a>
+            </p>
+        </div>
     </div>
 
 </body>
