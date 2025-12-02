@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elie Joseph Fayad El Haddad – Finance & Data Science</title>
 
+    <!-- ICONS (FontAwesome CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         :root {
             --navy: #0a1a2f;
-            --navy-light: #0f2647;
+            --navy-light: #132b46;
             --accent: #2d6cdf;
+            --accent-light: #4d88ff;
             --gray: #d9d9d9;
             --white: #ffffff;
         }
@@ -19,47 +23,72 @@
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: var(--navy);
             color: var(--white);
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         /* NAVBAR */
         .navbar {
             width: 100%;
-            background-color: rgba(15, 38, 71, 0.9);
+            background-color: rgba(15, 38, 71, 0.92);
             padding: 14px 40px;
             position: fixed;
             top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             backdrop-filter: blur(6px);
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            z-index: 1000;
         }
 
         .navbar-title {
             font-size: 20px;
             font-weight: bold;
-            letter-spacing: 0.5px;
+        }
+
+        .nav-buttons a {
+            margin-left: 20px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            padding: 6px 14px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .nav-buttons a:hover {
+            background-color: var(--accent);
             color: var(--white);
         }
 
+        /* HEADER */
         header {
             background: var(--navy-light);
-            padding: 120px 40px 60px;
+            padding: 160px 40px 80px;
             text-align: center;
             margin-bottom: 20px;
             box-shadow: inset 0 -5px 10px rgba(0,0,0,0.3);
         }
 
-        h1 {
-            font-size: 52px;
-            margin: 0;
-            letter-spacing: 1px;
+        .btn-main {
+            padding: 14px 26px;
+            color: var(--white);
+            background-color: var(--accent);
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 8px;
+            display: inline-block;
+            font-size: 18px;
+            transition: 0.3s;
         }
 
-        .subtitle {
-            font-size: 22px;
-            margin-top: 12px;
-            color: var(--gray);
+        .btn-main:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-3px);
         }
 
+        /* SECTIONS */
         .section {
             max-width: 900px;
             margin: auto;
@@ -74,40 +103,32 @@
             font-size: 28px;
         }
 
-        ul {
-            padding-left: 20px;
-        }
-
-        .item-title {
-            font-weight: bold;
-            font-size: 18px;
-            color: var(--white);
-            margin-bottom: 4px;
-        }
-
-        .role-date {
-            color: var(--gray);
-            margin-top: -8px;
-            margin-bottom: 10px;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* CARD STYLE SECTIONS */
+        /* CARDS */
         .card {
-            background-color: rgba(255,255,255,0.03);
+            background-color: rgba(255,255,255,0.04);
             padding: 25px;
             border-radius: 12px;
             margin-bottom: 35px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             border: 1px solid rgba(255,255,255,0.06);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+        }
+
+        /* CONTACT ICONS */
+        .contact-icons a {
+            color: var(--white);
+            margin-right: 20px;
+            font-size: 30px;
+            transition: 0.3s;
+        }
+
+        .contact-icons a:hover {
+            color: var(--accent-light);
         }
     </style>
 </head>
@@ -117,21 +138,33 @@
     <!-- NAVBAR -->
     <div class="navbar">
         <div class="navbar-title">Elie Joseph Fayad El Haddad</div>
+        <div class="nav-buttons">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
     </div>
 
     <!-- HEADER -->
     <header>
         <h1>Elie Joseph Fayad El Haddad</h1>
         <p class="subtitle">Finance Intern @ Morgan Stanley | Data Science @ ITAM | Former User Operations @ DiDi</p>
+
+        <!-- MAIN BUTTONS -->
+        <a class="btn-main" href="#about">About Me</a>
+        <a class="btn-main" href="#experience">Experience</a>
+        <a class="btn-main" href="#skills">Skills</a>
+        <a class="btn-main" href="#contact">Contact</a>
     </header>
 
     <!-- ABOUT -->
-    <div class="section">
+    <div class="section" id="about">
         <h2>About Me</h2>
         <div class="card">
             <p>
                 I am a <strong>Data Science student at ITAM</strong> with experience in financial analysis,
-                quantitative reporting, derivatives processes, and operational risk. I currently work as a
+                quantitative reporting, operational risk, and derivatives processes. I currently work as a
                 <strong>Finance Intern at Morgan Stanley</strong>, supporting global markets finance, 
                 reconciliation controls, XVA/FX risk monitoring, and regulatory reporting.
             </p>
@@ -144,78 +177,42 @@
             </p>
 
             <p>
-                I contribute to the preparation and validation of regulatory reports such as the 
-                <strong>FX Position Daily (ACLME)</strong>, conduct derivatives validations, and support teams
-                working on <strong>capital ratio (ICAP/ICAAP)</strong> calculations and documentation.
-            </p>
-
-            <p>
-                I enjoy integrating data science techniques into financial workflows and developing tools that
-                enhance decision-making, strengthen controls, and improve operational efficiency.
+                I contribute to regulatory reporting such as the 
+                <strong>FX Position Daily (ACLME)</strong>, derivatives validations, and support work involving 
+                <strong>capital ratio (ICAP/ICAAP)</strong> calculations, documentation, and controls.
             </p>
         </div>
     </div>
 
     <!-- EXPERIENCE -->
-    <div class="section">
+    <div class="section" id="experience">
         <h2>Professional Experience</h2>
 
-        <!-- MORGAN -->
         <div class="card">
             <p class="item-title">Finance Intern — Morgan Stanley</p>
             <p class="role-date">Jul 2025 – Present · Mexico City · Hybrid</p>
             <ul>
                 <li>Daily reconciliations of executed amounts for <strong>swaps, forwards, FX spots, bonds, and options</strong>.</li>
-                <li>Monitor <strong>XVA and FX exposure risks</strong> to support hedging strategies.</li>
-                <li>Prepare and validate regulatory reports such as <strong>FX Position Daily (ACLME)</strong>.</li>
-                <li>Perform <strong>derivatives validations</strong> and support compliance requirements.</li>
-                <li>Assist with <strong>capital ratio</strong> (ICAP/ICAAP) analysis and documentation.</li>
-                <li>Coordinate with global teams to ensure data accuracy and operational controls.</li>
+                <li>Monitor <strong>XVA and FX exposure</strong> risks to support hedging strategies.</li>
+                <li>Prepare/validate regulatory reports including <strong>FX Position Daily (ACLME)</strong>.</li>
+                <li>Perform <strong>derivatives validations</strong> and support compliance.</li>
+                <li>Assist with <strong>capital ratio</strong> (ICAP/ICAAP) analytics and documentation.</li>
             </ul>
         </div>
 
-        <!-- DIDI -->
         <div class="card">
             <p class="item-title">User Operations Intern — DiDi Shop</p>
             <p class="role-date">Jan 2025 – Jul 2025 · Mexico City · Hybrid</p>
             <ul>
-                <li>Developed weekly performance dashboards for leadership teams.</li>
-                <li>Analyzed revenue growth, ticket size, and user behavior trends.</li>
-                <li>Implemented KPI tracking and A/B testing for LATAM markets.</li>
-                <li>Worked with cross-regional teams across Asia and the Americas.</li>
-            </ul>
-        </div>
-
-        <!-- ACTINVER -->
-        <div class="card">
-            <p class="item-title">Participant — Reto Actinver 2024 (Top 7 of 300+)</p>
-            <p class="role-date">Oct 2024 – Nov 2024 · Mexico City</p>
-            <ul>
-                <li>Managed a conservative portfolio optimizing the <strong>Information Ratio</strong>.</li>
-                <li>Performed equity & ETF analysis using Python and financial APIs.</li>
-                <li>Ranked Top 7 out of 300+ participants.</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- CERTIFICATIONS -->
-    <div class="section">
-        <h2>Certifications</h2>
-        <div class="card">
-            <ul>
-                <li><strong>Intermediate Git</strong> — DataCamp (2025)</li>
-                <li><strong>Introduction to Git</strong> — DataCamp (2025)</li>
-                <li><strong>McKinsey Forward Program</strong> — McKinsey & Company (2025)</li>
-                <li><strong>Bloomberg Spreadsheet Analysis</strong> — Bloomberg (2025)</li>
-                <li><strong>Bloomberg Finance Fundamentals</strong> — Bloomberg (2025)</li>
-                <li><strong>SQL Certification</strong> — Codecademy (2025)</li>
-                <li><strong>ggplot2 Data Visualization</strong> — Codecademy (2025)</li>
+                <li>Built weekly performance dashboards for leadership.</li>
+                <li>Analyzed revenue, ticket size, and user behavior.</li>
+                <li>Implemented KPI tracking + A/B testing for LATAM.</li>
             </ul>
         </div>
     </div>
 
     <!-- SKILLS -->
-    <div class="section">
+    <div class="section" id="skills">
         <h2>Skills</h2>
         <div class="card">
             <ul>
@@ -224,26 +221,32 @@
                 <li>XVA & FX Exposure Monitoring</li>
                 <li>Derivatives Reporting & Controls</li>
                 <li>Financial Reconciliations</li>
-                <li>Advanced Excel & Financial Reporting</li>
-                <li>Version Control (Git & GitHub)</li>
+                <li>Excel (Advanced), Financial Reporting</li>
+                <li>Git & GitHub</li>
                 <li>Tableau, ggplot2</li>
-                <li>KPI Tracking & A/B Testing</li>
+                <li>KPI Tracking, A/B Testing</li>
             </ul>
         </div>
     </div>
 
     <!-- CONTACT -->
-    <div class="section">
+    <div class="section" id="contact">
         <h2>Contact</h2>
         <div class="card">
-            <p>Phone: +52 55 3950 3339</p>
-            <p>Email: efayad57@gmail.com</p>
-            <p>GitHub: <a href="https://github.com/Eliefaya" target="_blank">github.com/Eliefaya</a></p>
-            <p>LinkedIn: 
+            <p><strong>Phone:</strong> +52 55 3950 3339</p>
+            <p><strong>Email:</strong> your-email-here</p>
+
+            <div class="contact-icons">
                 <a href="https://www.linkedin.com/in/elie-fayad-" target="_blank">
-                    linkedin.com/in/elie-fayad-
+                    <i class="fab fa-linkedin"></i>
                 </a>
-            </p>
+                <a href="https://github.com/Eliefaya" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:your-email-here">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </div>
     </div>
 
