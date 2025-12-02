@@ -15,20 +15,17 @@
             --accent-light: #4d88ff;
             --gray: #c7c7c7;
             --white: #ffffff;
+            --overlay: rgba(0,0,0,0.85);
         }
-
-        * { box-sizing: border-box; }
 
         body {
             margin: 0;
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: var(--navy);
             color: var(--white);
-            line-height: 1.6;
         }
 
-        a { color: var(--accent-light); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: var(--accent-light); }
 
         /* NAVBAR */
         .navbar {
@@ -45,100 +42,24 @@
             z-index: 1000;
         }
 
-        .navbar-title {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
         .nav-buttons a {
             margin-left: 14px;
-            color: var(--white);
-            font-size: 14px;
             padding: 6px 14px;
             border-radius: 999px;
             border: 1px solid rgba(77, 136, 255, 0.7);
-            transition: 0.25s;
-        }
-
-        .nav-buttons a:hover {
-            background-color: var(--accent);
-            transform: translateY(-1px);
         }
 
         /* HERO */
         header {
             padding: 140px 20px 80px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero {
-            max-width: 900px;
-            width: 100%;
             text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 12px;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            color: var(--gray);
-        }
-
-        .hero-badges {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
         }
 
         .badge {
             font-size: 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.15);
             padding: 4px 10px;
-            color: var(--gray);
-        }
-
-        .hero-buttons {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-        }
-
-        .btn-main, .btn-secondary {
-            padding: 10px 20px;
             border-radius: 999px;
-            font-size: 14px;
-            transition: 0.25s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-main {
-            background-color: var(--accent);
-            color: white;
-        }
-
-        .btn-main:hover {
-            background-color: var(--accent-light);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
             border: 1px solid rgba(255,255,255,0.2);
-            color: var(--gray);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-light);
-            color: var(--white);
         }
 
         /* SECTIONS */
@@ -151,111 +72,110 @@
         .section h2 {
             color: var(--accent-light);
             border-bottom: 1px solid rgba(77,136,255,0.6);
-            padding-bottom: 8px;
+            padding-bottom: 6px;
         }
 
+        /* CARDS GENERALES */
         .card {
             background-color: rgba(255,255,255,0.03);
-            padding: 18px;
+            padding: 20px;
             border-radius: 12px;
-            margin-bottom: 14px;
             border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.33);
+            margin-bottom: 16px;
         }
 
-        ul { padding-left: 18px; }
-
-        /* EXPERIENCE INTERACTIVE */
+        /* EXPERIENCE FULLSCREEN */
         .experience-grid {
             display: flex;
             justify-content: center;
+            gap: 22px;
             flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 25px;
         }
 
         .experience-card {
             width: 300px;
             height: 180px;
-            perspective: 1200px;
-        }
-
-        .experience-inner {
-            width: 100%;
-            height: 100%;
-            transition: transform 0.7s;
-            transform-style: preserve-3d;
-        }
-
-        .experience-card.flipped .experience-inner {
-            transform: rotateY(180deg);
-        }
-
-        .experience-front, .experience-back {
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            border-radius: 12px;
-            backface-visibility: hidden;
-            position: absolute;
+            border-radius: 14px;
             background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.12);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-        }
-
-        .experience-front {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+            padding: 20px;
             text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .experience-front h3 {
-            color: var(--accent-light);
-            margin-bottom: 10px;
+        .experience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 22px rgba(0,0,0,0.6);
         }
 
-        .experience-back {
-            transform: rotateY(180deg);
+        /* FULLSCREEN DETAILS */
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--overlay);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 3000;
+        }
+
+        .fullscreen-content {
+            width: 90%;
+            max-width: 700px;
+            height: 80%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(14px);
+            border-radius: 16px;
+            padding: 22px;
             overflow-y: auto;
+            transform: rotateY(90deg);
+            transition: transform 0.6s ease;
         }
 
-        .experience-back h3 {
-            color: var(--accent-light);
-            margin-top: 0;
+        .fullscreen-content.show {
+            transform: rotateY(0deg);
         }
 
-        .back-button {
-            margin-top: 10px;
-            padding: 8px 16px;
+        .close-fullscreen {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
             background-color: var(--accent);
             color: white;
-            border-radius: 8px;
             border: none;
             cursor: pointer;
-            transition: 0.25s;
         }
 
-        .back-button:hover {
+        .close-fullscreen:hover {
             background-color: var(--accent-light);
-            transform: translateY(-2px);
         }
 
-        /* CONTACT */
+        /* FOOTER ICONS – CENTERED */
+        .contact-icons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
         .contact-icons a {
             margin: 0 10px;
             font-size: 28px;
-            color: white;
+            color: var(--white);
         }
 
         footer {
             text-align: center;
-            padding: 15px;
+            padding: 12px;
             color: var(--gray);
-            font-size: 12px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 30px;
         }
+
     </style>
 </head>
 
@@ -274,30 +194,23 @@
 
     <!-- HERO -->
     <header>
-        <div class="hero">
-            <h1>Finance & Data Science</h1>
-            <div class="hero-subtitle"><strong>Elie Joseph Fayad El Haddad</strong> — Global Markets, Derivatives & Risk.</div>
+        <h1>Finance & Data Science</h1>
+        <div class="hero-subtitle"><strong>Elie Joseph Fayad El Haddad</strong> — Global Markets, Derivatives, Risk & Reporting.</div>
 
-            <div class="hero-badges">
-                <span class="badge">Swaps · FX · Options</span>
-                <span class="badge">XVA Exposure</span>
-                <span class="badge">Regulatory Reporting</span>
-                <span class="badge">Python · SQL</span>
-            </div>
-
-            <div class="hero-buttons">
-                <a class="btn-main" href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
-                <a class="btn-secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
-            </div>
+        <div class="hero-badges" style="margin-top:20px;">
+            <span class="badge">Swaps · FX · Options</span>
+            <span class="badge">XVA Exposure</span>
+            <span class="badge">Regulatory Reporting</span>
+            <span class="badge">Python · SQL</span>
         </div>
     </header>
 
-    <!-- ABOUT -->
+    <!-- ABOUT ME -->
     <section class="section" id="about">
         <h2>About Me</h2>
         <div class="card">
-            <p>I am a <strong>Data Science student at ITAM</strong> and a <strong>Finance Intern at Morgan Stanley</strong> focused on global markets, derivatives, risk and regulatory reporting.</p>
-            <p>I handle reconciliations for swaps, forwards, FX spots, bonds and options, support XVA/FX exposure monitoring, and contribute to ACLME reporting and ICAP/ICAAP documentation.</p>
+            <p>I am a <strong>Data Science student at ITAM</strong> and a <strong>Finance Intern at Morgan Stanley</strong> working in Global Markets, XVA, FX exposure, and regulatory reporting.</p>
+            <p>I support daily derivatives reconciliations, capital ratio documentation (ICAP/ICAAP), risk monitoring, hedging strategies, and cross-team financial controls.</p>
         </div>
     </section>
 
@@ -307,60 +220,58 @@
 
         <div class="experience-grid">
 
-            <!-- MORGAN STANLEY -->
-            <div class="experience-card">
-                <div class="experience-inner">
-                    <div class="experience-front">
-                        <h3>Finance Intern — Morgan Stanley</h3>
-                        <p>Global Markets • Risk</p>
-                    </div>
-
-                    <div class="experience-back">
-                        <h3>Morgan Stanley — Finance Intern</h3>
-                        <p><strong>Jul 2025 – Present • Mexico City</strong></p>
-                        <ul>
-                            <li>Daily reconciliations for swaps, forwards, FX spots, bonds and options.</li>
-                            <li>Monitor XVA and FX exposure for risk mitigation and hedging strategies.</li>
-                            <li>Prepare and validate regulatory reports: FX Position Daily (ACLME).</li>
-                            <li>Perform derivative validations, booking controls and exception handling.</li>
-                            <li>Support ICAP/ICAAP analytics and internal controls documentation.</li>
-                            <li>Assist with operational risk, exposure monitoring and P&L explanation.</li>
-                        </ul>
-                        <button class="back-button">Back</button>
-                    </div>
-                </div>
+            <div class="experience-card" data-popup="ms">
+                <h3 style="color:#4d88ff;">Finance Intern — Morgan Stanley</h3>
+                <p>Global Markets • Derivatives • Risk</p>
             </div>
 
-            <!-- DIDI -->
-            <div class="experience-card">
-                <div class="experience-inner">
-                    <div class="experience-front">
-                        <h3>User Operations Intern — DiDi</h3>
-                        <p>Analytics • KPIs</p>
-                    </div>
-
-                    <div class="experience-back">
-                        <h3>DiDi — User Operations Intern</h3>
-                        <p><strong>Jan 2025 – Jul 2025</strong></p>
-                        <ul>
-                            <li>Built dashboards for operational performance and user analytics.</li>
-                            <li>Conducted revenue and customer behavior analysis.</li>
-                            <li>Executed KPI tracking and operational workflows across regions.</li>
-                            <li>Designed and analyzed A/B tests to optimize user experience.</li>
-                            <li>Collaborated with international teams across LATAM and Asia.</li>
-                        </ul>
-                        <button class="back-button">Back</button>
-                    </div>
-                </div>
+            <div class="experience-card" data-popup="didi">
+                <h3 style="color:#4d88ff;">User Operations Intern — DiDi</h3>
+                <p>Analytics • KPIs • Growth</p>
             </div>
 
         </div>
     </section>
 
+    <!-- FULLSCREEN POPUPS -->
+    <div class="fullscreen-overlay" id="popup-ms">
+        <div class="fullscreen-content">
+            <h2 style="color:#4d88ff;">Morgan Stanley — Finance Intern</h2>
+            <p><strong>Jul 2025 – Present • Mexico City</strong></p>
+
+            <ul>
+                <li>Daily reconciliations for swaps, forwards, FX spots, bonds, and options.</li>
+                <li>Monitor XVA and FX exposure for risk mitigation and hedging support.</li>
+                <li>Prepare and validate regulatory reports: FX Position Daily (ACLME).</li>
+                <li>Perform derivative validations, booking controls, and trade exception handling.</li>
+                <li>Support ICAP/ICAAP capital ratio documentation.</li>
+                <li>Assist with operational risk, exposure monitoring, and P&L explanation.</li>
+            </ul>
+
+            <button class="close-fullscreen">Back</button>
+        </div>
+    </div>
+
+    <div class="fullscreen-overlay" id="popup-didi">
+        <div class="fullscreen-content">
+            <h2 style="color:#4d88ff;">DiDi — User Operations Intern</h2>
+            <p><strong>Jan 2025 – Jul 2025</strong></p>
+
+            <ul>
+                <li>Built dashboards for operational and user analytics.</li>
+                <li>Conducted revenue and customer behavior analysis.</li>
+                <li>Designed KPI tracking workflows across multiple regions.</li>
+                <li>Developed and interpreted A/B tests.</li>
+                <li>Collaborated with international teams in LATAM and Asia.</li>
+            </ul>
+
+            <button class="close-fullscreen">Back</button>
+        </div>
+    </div>
+
     <!-- SKILLS -->
     <section class="section" id="skills">
         <h2>Skills & Certifications</h2>
-
         <div class="card">
             <ul>
                 <li>Python (Pandas, NumPy, Matplotlib)</li>
@@ -371,7 +282,13 @@
                 <li>Excel (Advanced)</li>
                 <li>Tableau, ggplot2</li>
                 <li>Git & Version Control</li>
-                <li>Bloomberg Certifications</li>
+                <li>McKinsey Forward Program</li>
+                <li>Bloomberg Spreadsheet Analysis</li>
+                <li>Bloomberg Finance Fundamentals</li>
+                <li>Intermediate Git — DataCamp</li>
+                <li>Intro to Git — DataCamp</li>
+                <li>ggplot2 — Codecademy</li>
+                <li>SQL — Codecademy</li>
             </ul>
         </div>
     </section>
@@ -398,16 +315,28 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
 
+        // ABRIR POPUP
         document.querySelectorAll(".experience-card").forEach(card => {
             card.addEventListener("click", () => {
-                card.classList.toggle("flipped");
+                const id = card.getAttribute("data-popup");
+                const popup = document.getElementById(`popup-${id}`);
+                popup.style.display = "flex";
+
+                setTimeout(() => {
+                    popup.querySelector(".fullscreen-content").classList.add("show");
+                }, 50);
             });
         });
 
-        document.querySelectorAll(".back-button").forEach(btn => {
+        // CERRAR POPUP
+        document.querySelectorAll(".close-fullscreen").forEach(btn => {
             btn.addEventListener("click", e => {
-                e.stopPropagation();
-                btn.closest(".experience-card").classList.remove("flipped");
+                const popup = btn.closest(".fullscreen-overlay");
+                popup.querySelector(".fullscreen-content").classList.remove("show");
+
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 400);
             });
         });
     </script>
