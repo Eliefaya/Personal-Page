@@ -11,7 +11,6 @@
     <style>
         :root {
             --navy: #050816;
-            --navy-light: #0b1730;
             --accent: #2d6cdf;
             --accent-light: #4d88ff;
             --gray: #c7c7c7;
@@ -26,7 +25,6 @@
             background-color: var(--navy);
             color: var(--white);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
         }
 
         a { color: var(--accent-light); text-decoration: none; }
@@ -61,6 +59,7 @@
             border: 1px solid rgba(77, 136, 255, 0.7);
             transition: 0.25s;
         }
+
         .nav-buttons a:hover {
             background-color: var(--accent);
             transform: translateY(-1px);
@@ -76,27 +75,25 @@
         .hero {
             max-width: 900px;
             width: 100%;
-            display: block;
             text-align: center;
         }
 
-        .hero-text h1 {
+        .hero h1 {
             font-size: 42px;
-            margin: 0 0 10px;
+            margin-bottom: 12px;
         }
 
         .hero-subtitle {
             font-size: 18px;
             color: var(--gray);
-            margin-bottom: 24px;
         }
 
         .hero-badges {
+            margin-top: 20px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 8px;
-            margin-bottom: 24px;
         }
 
         .badge {
@@ -105,93 +102,76 @@
             border: 1px solid rgba(255,255,255,0.15);
             padding: 4px 10px;
             color: var(--gray);
-            background: rgba(255,255,255,0.03);
         }
 
         .hero-buttons {
+            margin-top: 25px;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
+            gap: 14px;
         }
 
-        .btn-main,
-        .btn-secondary {
+        .btn-main, .btn-secondary {
             padding: 10px 20px;
             border-radius: 999px;
             font-size: 14px;
+            transition: 0.25s;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            cursor: pointer;
-            transition: 0.25s;
-            text-decoration: none;
         }
 
         .btn-main {
-            color: var(--white);
-            background: var(--accent);
-            box-shadow: 0 6px 18px rgba(45, 108, 223, 0.35);
+            background-color: var(--accent);
+            color: white;
         }
+
         .btn-main:hover {
-            background: var(--accent-light);
+            background-color: var(--accent-light);
             transform: translateY(-2px);
         }
 
         .btn-secondary {
-            color: var(--gray);
-            background: transparent;
             border: 1px solid rgba(255,255,255,0.2);
+            color: var(--gray);
         }
+
         .btn-secondary:hover {
             border-color: var(--accent-light);
             color: var(--white);
-            transform: translateY(-1px);
         }
 
         /* SECTIONS */
         .section {
             max-width: 960px;
-            margin: 0 auto;
+            margin: auto;
             padding: 20px;
         }
 
         .section h2 {
             color: var(--accent-light);
-            border-bottom: 1px solid rgba(77, 136, 255, 0.6);
+            border-bottom: 1px solid rgba(77,136,255,0.6);
             padding-bottom: 8px;
-            margin: 0 0 18px;
-            font-size: 24px;
         }
 
-        /* CARDS */
         .card {
             background-color: rgba(255,255,255,0.03);
             padding: 18px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 14px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.45);
-            border: 1px solid rgba(255,255,255,0.06);
-            transition: 0.22s;
-        }
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.33);
         }
 
-        ul {
-            padding-left: 18px;
-            margin: 0;
-            font-size: 14px;
-        }
+        ul { padding-left: 18px; }
 
         /* EXPERIENCE INTERACTIVE */
         .experience-grid {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 25px;
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .experience-card {
@@ -201,12 +181,10 @@
         }
 
         .experience-inner {
-            position: relative;
             width: 100%;
             height: 100%;
             transition: transform 0.7s;
             transform-style: preserve-3d;
-            cursor: pointer;
         }
 
         .experience-card.flipped .experience-inner {
@@ -214,28 +192,27 @@
         }
 
         .experience-front, .experience-back {
-            position: absolute;
             width: 100%;
             height: 100%;
+            padding: 20px;
             border-radius: 12px;
             backface-visibility: hidden;
-            padding: 20px;
-            box-shadow: 0px 6px 18px rgba(0,0,0,0.35);
+            position: absolute;
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
         }
 
         .experience-front {
             display: flex;
-            flex-direction: column;
             justify-content: center;
+            flex-direction: column;
             text-align: center;
         }
 
         .experience-front h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
             color: var(--accent-light);
+            margin-bottom: 10px;
         }
 
         .experience-back {
@@ -244,16 +221,16 @@
         }
 
         .experience-back h3 {
-            margin-top: 0;
             color: var(--accent-light);
+            margin-top: 0;
         }
 
         .back-button {
-            margin-top: 15px;
-            padding: 8px 18px;
-            border-radius: 8px;
+            margin-top: 10px;
+            padding: 8px 16px;
             background-color: var(--accent);
             color: white;
+            border-radius: 8px;
             border: none;
             cursor: pointer;
             transition: 0.25s;
@@ -265,36 +242,19 @@
         }
 
         /* CONTACT */
-        .contact-center { text-align: center; }
-        .contact-icons {
-            margin-top: 10px;
-        }
         .contact-icons a {
-            color: var(--white);
             margin: 0 10px;
             font-size: 28px;
-            transition: 0.25s;
-        }
-        .contact-icons a:hover {
-            color: var(--accent-light);
-            transform: translateY(-2px);
+            color: white;
         }
 
         footer {
             text-align: center;
-            padding: 12px 10px 18px;
-            font-size: 12px;
+            padding: 15px;
             color: var(--gray);
-            border-top: 1px solid rgba(255,255,255,0.06);
-            margin-top: 8px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 900px) {
-            .navbar {
-                padding: 10px 20px;
-            }
-            .nav-buttons a { display: none; }
+            font-size: 12px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -312,26 +272,22 @@
         </div>
     </div>
 
-    <!-- HERO WITHOUT IMAGE -->
+    <!-- HERO -->
     <header>
         <div class="hero">
-            <div class="hero-text">
-                <h1>Finance & Data Science</h1>
-                <div class="hero-subtitle">
-                    <strong>Elie Joseph Fayad El Haddad</strong> — Global Markets, Derivatives, Risk & Quantitative Analysis.
-                </div>
+            <h1>Finance & Data Science</h1>
+            <div class="hero-subtitle"><strong>Elie Joseph Fayad El Haddad</strong> — Global Markets, Derivatives & Risk.</div>
 
-                <div class="hero-badges">
-                    <span class="badge">Swaps · FX · Options</span>
-                    <span class="badge">XVA Exposure</span>
-                    <span class="badge">Regulatory Reporting</span>
-                    <span class="badge">Python · SQL</span>
-                </div>
+            <div class="hero-badges">
+                <span class="badge">Swaps · FX · Options</span>
+                <span class="badge">XVA Exposure</span>
+                <span class="badge">Regulatory Reporting</span>
+                <span class="badge">Python · SQL</span>
+            </div>
 
-                <div class="hero-buttons">
-                    <a class="btn-main" href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
-                    <a class="btn-secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
-                </div>
+            <div class="hero-buttons">
+                <a class="btn-main" href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+                <a class="btn-secondary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
             </div>
         </div>
     </header>
@@ -340,8 +296,8 @@
     <section class="section" id="about">
         <h2>About Me</h2>
         <div class="card">
-            <p>I am a <strong>Data Science student at ITAM</strong> and a <strong>Finance Intern at Morgan Stanley</strong> focused on global markets, derivatives, XVA, FX exposure and regulatory reporting.</p>
-            <p>I perform daily reconciliations for <strong>swaps, forwards, FX spots, bonds and options</strong>, contribute to <strong>XVA/FX risk monitoring</strong>, and assist with <strong>ACLME regulatory reporting</strong> and <strong>capital ratio (ICAP/ICAAP)</strong> documentation.</p>
+            <p>I am a <strong>Data Science student at ITAM</strong> and a <strong>Finance Intern at Morgan Stanley</strong> focused on global markets, derivatives, risk and regulatory reporting.</p>
+            <p>I handle reconciliations for swaps, forwards, FX spots, bonds and options, support XVA/FX exposure monitoring, and contribute to ACLME reporting and ICAP/ICAAP documentation.</p>
         </div>
     </section>
 
@@ -354,75 +310,47 @@
             <!-- MORGAN STANLEY -->
             <div class="experience-card">
                 <div class="experience-inner">
-
                     <div class="experience-front">
                         <h3>Finance Intern — Morgan Stanley</h3>
-                        <p>Global Markets • Risk • Derivatives</p>
+                        <p>Global Markets • Risk</p>
                     </div>
 
                     <div class="experience-back">
                         <h3>Morgan Stanley — Finance Intern</h3>
-                        <p><strong>Jul 2025 – Present • Mexico City • Hybrid</strong></p>
+                        <p><strong>Jul 2025 – Present • Mexico City</strong></p>
                         <ul>
                             <li>Daily reconciliations for swaps, forwards, FX spots, bonds and options.</li>
-                            <li>Monitor XVA and FX exposure to identify currency risk and support hedging strategies.</li>
+                            <li>Monitor XVA and FX exposure for risk mitigation and hedging strategies.</li>
                             <li>Prepare and validate regulatory reports: FX Position Daily (ACLME).</li>
-                            <li>Perform derivative validations, trade accuracy checks, booking controls and exception handling.</li>
-                            <li>Support capital ratio (ICAP/ICAAP) documentation and internal controls.</li>
-                            <li>Assist in operational risk management and P&L explanation for derivative desks.</li>
+                            <li>Perform derivative validations, booking controls and exception handling.</li>
+                            <li>Support ICAP/ICAAP analytics and internal controls documentation.</li>
+                            <li>Assist with operational risk, exposure monitoring and P&L explanation.</li>
                         </ul>
                         <button class="back-button">Back</button>
                     </div>
-
                 </div>
             </div>
 
             <!-- DIDI -->
             <div class="experience-card">
                 <div class="experience-inner">
-
                     <div class="experience-front">
                         <h3>User Operations Intern — DiDi</h3>
-                        <p>Analytics • KPIs • A/B Testing</p>
+                        <p>Analytics • KPIs</p>
                     </div>
 
                     <div class="experience-back">
                         <h3>DiDi — User Operations Intern</h3>
                         <p><strong>Jan 2025 – Jul 2025</strong></p>
                         <ul>
-                            <li>Built dashboards to visualize performance, growth and user engagement metrics.</li>
-                            <li>Conducted revenue strategy reviews and analyzed customer behavior.</li>
-                            <li>Executed KPI tracking and operational controls across multiple regions.</li>
-                            <li>Participated in A/B testing design, execution and evaluation.</li>
-                            <li>Worked with international teams from Latin America and Asia.</li>
+                            <li>Built dashboards for operational performance and user analytics.</li>
+                            <li>Conducted revenue and customer behavior analysis.</li>
+                            <li>Executed KPI tracking and operational workflows across regions.</li>
+                            <li>Designed and analyzed A/B tests to optimize user experience.</li>
+                            <li>Collaborated with international teams across LATAM and Asia.</li>
                         </ul>
                         <button class="back-button">Back</button>
                     </div>
-
-                </div>
-            </div>
-
-            <!-- ACTINVER -->
-            <div class="experience-card">
-                <div class="experience-inner">
-
-                    <div class="experience-front">
-                        <h3>Reto Actinver — Top 7 of 300+</h3>
-                        <p>Portfolio Optimization</p>
-                    </div>
-
-                    <div class="experience-back">
-                        <h3>Reto Actinver 2024</h3>
-                        <p><strong>Oct 2024 – Nov 2024</strong></p>
-                        <ul>
-                            <li>Ranked top 7 out of 300+ participants from ITAM.</li>
-                            <li>Managed a diversified investment portfolio using Python and financial models.</li>
-                            <li>Performed equity, ETF and risk factor analysis.</li>
-                            <li>Optimized portfolio performance relative to benchmark.</li>
-                        </ul>
-                        <button class="back-button">Back</button>
-                    </div>
-
                 </div>
             </div>
 
@@ -433,30 +361,18 @@
     <section class="section" id="skills">
         <h2>Skills & Certifications</h2>
 
-        <div class="two-column">
-            <div class="card">
-                <ul>
-                    <li>Python (Pandas, NumPy, Matplotlib)</li>
-                    <li>SQL (PostgreSQL, MySQL)</li>
-                    <li>XVA & FX Exposure</li>
-                    <li>Derivatives Reporting</li>
-                    <li>Financial Reconciliations</li>
-                    <li>Excel (Advanced)</li> 
-                    <li>Tableau, ggplot2</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <ul>
-                    <li>Intermediate Git — DataCamp</li>
-                    <li>Intro to Git — DataCamp</li>
-                    <li>McKinsey Forward Program</li>
-                    <li>Bloomberg Spreadsheet Analysis</li>
-                    <li>Bloomberg Finance Fundamentals</li>
-                    <li>SQL — Codecademy</li>
-                    <li>ggplot2 — Codecademy</li>
-                </ul>
-            </div>
+        <div class="card">
+            <ul>
+                <li>Python (Pandas, NumPy, Matplotlib)</li>
+                <li>SQL (PostgreSQL, MySQL)</li>
+                <li>XVA & FX Exposure Monitoring</li>
+                <li>Derivatives Reporting</li>
+                <li>Financial Reconciliations</li>
+                <li>Excel (Advanced)</li>
+                <li>Tableau, ggplot2</li>
+                <li>Git & Version Control</li>
+                <li>Bloomberg Certifications</li>
+            </ul>
         </div>
     </section>
 
@@ -480,7 +396,7 @@
     </footer>
 
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById("year").textContent = new Date().getFullYear();
 
         document.querySelectorAll(".experience-card").forEach(card => {
             card.addEventListener("click", () => {
@@ -489,7 +405,7 @@
         });
 
         document.querySelectorAll(".back-button").forEach(btn => {
-            btn.addEventListener("click", (e) => {
+            btn.addEventListener("click", e => {
                 e.stopPropagation();
                 btn.closest(".experience-card").classList.remove("flipped");
             });
