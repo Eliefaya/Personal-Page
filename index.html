@@ -73,11 +73,10 @@
             justify-content: center;
         }
 
-        /* Adjusted hero layout after removing image */
         .hero {
             max-width: 900px;
             width: 100%;
-            display: block; /* Instead of grid */
+            display: block;
             text-align: center;
         }
 
@@ -180,26 +179,89 @@
             box-shadow: 0 6px 18px rgba(0,0,0,0.6);
         }
 
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-
-        .item-title {
-            font-weight: 600;
-            font-size: 15px;
-        }
-        .role-date {
-            font-size: 13px;
-            color: var(--gray);
-            margin: 2px 0 8px;
-        }
-
         ul {
             padding-left: 18px;
             margin: 0;
             font-size: 14px;
+        }
+
+        /* EXPERIENCE INTERACTIVE */
+        .experience-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .experience-card {
+            width: 300px;
+            height: 180px;
+            perspective: 1200px;
+        }
+
+        .experience-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .experience-card.flipped .experience-inner {
+            transform: rotateY(180deg);
+        }
+
+        .experience-front, .experience-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            backface-visibility: hidden;
+            padding: 20px;
+            box-shadow: 0px 6px 18px rgba(0,0,0,0.35);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .experience-front {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .experience-front h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--accent-light);
+        }
+
+        .experience-back {
+            transform: rotateY(180deg);
+            overflow-y: auto;
+        }
+
+        .experience-back h3 {
+            margin-top: 0;
+            color: var(--accent-light);
+        }
+
+        .back-button {
+            margin-top: 15px;
+            padding: 8px 18px;
+            border-radius: 8px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-2px);
         }
 
         /* CONTACT */
@@ -287,41 +349,83 @@
     <section class="section" id="experience">
         <h2>Professional Experience</h2>
 
-        <div class="two-column">
-            <div>
-                <div class="card">
-                    <p class="item-title">Finance Intern — Morgan Stanley</p>
-                    <p class="role-date">Jul 2025 – Present · Mexico City · Hybrid</p>
-                    <ul>
-                        <li>Daily reconciliations (swaps, forwards, FX spots, bonds, options).</li>
-                        <li>Monitor <strong>XVA and FX exposure</strong> to support hedging strategies.</li>
-                        <li>Prepare and validate regulatory reports (ACLME).</li>
-                        <li>Perform derivatives validations & controls.</li>
-                        <li>Support capital ratio analytics (ICAP/ICAAP).</li>
-                    </ul>
+        <div class="experience-grid">
+
+            <!-- MORGAN STANLEY -->
+            <div class="experience-card">
+                <div class="experience-inner">
+
+                    <div class="experience-front">
+                        <h3>Finance Intern — Morgan Stanley</h3>
+                        <p>Global Markets • Risk • Derivatives</p>
+                    </div>
+
+                    <div class="experience-back">
+                        <h3>Morgan Stanley — Finance Intern</h3>
+                        <p><strong>Jul 2025 – Present • Mexico City • Hybrid</strong></p>
+                        <ul>
+                            <li>Daily reconciliations for swaps, forwards, FX spots, bonds and options.</li>
+                            <li>Monitor XVA and FX exposure to identify currency risk and support hedging strategies.</li>
+                            <li>Prepare and validate regulatory reports: FX Position Daily (ACLME).</li>
+                            <li>Perform derivative validations, trade accuracy checks, booking controls and exception handling.</li>
+                            <li>Support capital ratio (ICAP/ICAAP) documentation and internal controls.</li>
+                            <li>Assist in operational risk management and P&L explanation for derivative desks.</li>
+                        </ul>
+                        <button class="back-button">Back</button>
+                    </div>
+
                 </div>
             </div>
 
-            <div>
-                <div class="card">
-                    <p class="item-title">User Operations Intern — DiDi Shop</p>
-                    <p class="role-date">Jan 2025 – Jul 2025</p>
-                    <ul>
-                        <li>Developed performance dashboards.</li>
-                        <li>Analyzed revenue growth & user behavior.</li>
-                        <li>Implemented KPI tracking and A/B testing.</li>
-                    </ul>
-                </div>
+            <!-- DIDI -->
+            <div class="experience-card">
+                <div class="experience-inner">
 
-                <div class="card">
-                    <p class="item-title">Reto Actinver 2024 — Top 7 of 300+</p>
-                    <p class="role-date">Oct 2024 – Nov 2024</p>
-                    <ul>
-                        <li>Portfolio optimization using Python.</li>
-                        <li>Equity & ETF analysis.</li>
-                    </ul>
+                    <div class="experience-front">
+                        <h3>User Operations Intern — DiDi</h3>
+                        <p>Analytics • KPIs • A/B Testing</p>
+                    </div>
+
+                    <div class="experience-back">
+                        <h3>DiDi — User Operations Intern</h3>
+                        <p><strong>Jan 2025 – Jul 2025</strong></p>
+                        <ul>
+                            <li>Built dashboards to visualize performance, growth and user engagement metrics.</li>
+                            <li>Conducted revenue strategy reviews and analyzed customer behavior.</li>
+                            <li>Executed KPI tracking and operational controls across multiple regions.</li>
+                            <li>Participated in A/B testing design, execution and evaluation.</li>
+                            <li>Worked with international teams from Latin America and Asia.</li>
+                        </ul>
+                        <button class="back-button">Back</button>
+                    </div>
+
                 </div>
             </div>
+
+            <!-- ACTINVER -->
+            <div class="experience-card">
+                <div class="experience-inner">
+
+                    <div class="experience-front">
+                        <h3>Reto Actinver — Top 7 of 300+</h3>
+                        <p>Portfolio Optimization</p>
+                    </div>
+
+                    <div class="experience-back">
+                        <h3>Reto Actinver 2024</h3>
+                        <p><strong>Oct 2024 – Nov 2024</strong></p>
+                        <ul>
+                            <li>Ranked top 7 out of 300+ participants from ITAM.</li>
+                            <li>Managed a diversified investment portfolio using Python and financial models.</li>
+                            <li>Performed equity, ETF and risk factor analysis.</li>
+                            <li>Optimized portfolio performance relative to benchmark.</li>
+                        </ul>
+                        <button class="back-button">Back</button>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -377,6 +481,19 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        document.querySelectorAll(".experience-card").forEach(card => {
+            card.addEventListener("click", () => {
+                card.classList.toggle("flipped");
+            });
+        });
+
+        document.querySelectorAll(".back-button").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                btn.closest(".experience-card").classList.remove("flipped");
+            });
+        });
     </script>
 
 </body>
